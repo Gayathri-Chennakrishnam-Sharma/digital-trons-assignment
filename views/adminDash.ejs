@@ -1,0 +1,212 @@
+<!-- animation background -->
+<%- include('partiallink/animatedbg'); -%>
+
+<!-- admin container -->
+<div class="admin-container">
+        
+    <!-- admin menu -->
+    <div class="mobile-menu">
+        <div class="logout-men">
+            <a href="/admin/logoutA"> <i class="fas fa-sign-out-alt"></i> </a>
+        </div>
+    </div>
+    <div class="meno-admin">
+        <div class="logout-men">
+            <a href="/admin/logoutA"> <i class="fas fa-sign-out-alt"></i> </a>
+        </div>
+        <div class="logo-admin">
+            <a class="admin-logo" href="/"><img src="/source/booker.svg" alt=""></a>
+        </div>
+    </div>
+
+    <!-- admin contents -->
+    <div class="admin-panel">
+        <%- include('partials/messages');-%>
+        <div class="ttls-data">
+            <button class="styled dashboardBtn" style="background: linear-gradient(90deg, rgb(240, 115, 200) 0%, rgb(255, 106, 149) 99%);box-shadow: rgb(255 106 149) 0px 0px 120px; color: var(--whiteTableCC);">Dashboard</button>
+            <button class="styled users">Users</button>
+            <button class="styled appns">Appointments</button>
+            <button class="styled admins">Admins</button>
+            <button class="styled workhours">Change Work Hours</button>
+            <button class="styled workhours">Help?</button>
+            <button class="styled searchBtn"><i class="fas fa-search"></i></button>
+            <div class="searchMenu">
+                <label for="search">What are you searching for?</label>
+                <input type="text" name="search" id="searchInput" placeholder="Search users informations">
+            </div>
+        </div>
+        
+        <div class="data-collection" >
+            
+            <div class="alladmin" style="display: none;">
+                
+                
+                <h1>Edit the current admin information or register a new admin.</h1>
+                <div class="current-admin-container">
+                    <div class="current-admin">
+                        <div class="admin-infos">
+                            <div class="admin-info">
+                                
+                                <a class="editAdminInfo" href="/update_admin">Edit Admin Info</a>
+                                <a href="/adminReg" class="addNewAdmin" id="addNewAdmin">Add New Admin</a>
+                                
+                            </div>
+                        </div>
+                        <div class="admin-img">
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="welcomeAdmin" style="display: flex;">
+                <h1>Welcome to Admin Page, <br>Here you can do the following things:</h1>
+                <div class="infoa">
+                    <div> User
+                        <li>Delete User</li>
+                        <li>Upadate User</li>
+                        <li>Add User</li>
+                    </div>
+                    <div> Appointment
+                        <li>Delete </li>
+                        <li>Upadate </li>
+                        <li>Add </li>
+                    </div>
+                </div>
+                <!-- <div class="admin-dash-btns">
+                    <a href="/table" class="styled users">Schedule</a>
+                    <button class="styled users">Close</button>
+                </div> -->
+
+            </div>
+            <div class="add-time-container" style="display: none;">
+                <form action="/addTime" method="POST">
+                    <h1 class="ttl-add-time">Week days </h1>
+                    <div class="add-days-hours">
+                        <div class="mon">
+                            <label for="mondag">Mån</label>
+                            <input class="add-hours-input" type="number" name="monday" value="8" required>
+                        </div>
+                        <div class="tis">
+                            <label for="tisdag">Tis</label>
+                            <input class="add-hours-input" type="number" name="tuesday" value="8" required>
+                        </div>
+                        <div class="ons">
+                            <label for="onsdag">Öns</label>
+                            <input class="add-hours-input" type="number" name="wednesday" value="8" required>
+                        </div>
+                        <div class="tur">
+                            <label for="tursdag">Tur</label>
+                            <input class="add-hours-input" type="number" name="thursday" value="8"  required>
+                        </div>
+                        <div class="fre">
+                            <label for="fredag">Fre</label>
+                            <input class="add-hours-input" type="number" name="friday" value="8" required>
+                        </div>
+                        <div class="lor">
+                            <label for="lordag">Lör</label>
+                            <input class="add-hours-input" type="number" name="saturday" value="0" required>
+                        </div>
+                        <div class="son">
+                            <label for="sondag">Sön</label>
+                            <input class="add-hours-input" type="number" name="sunday" value="0" required>
+                        </div>
+                        
+                    </div>
+                    <div class="ruls-add-time">
+
+                        <label for="meetingTime">
+                            <h1 class="ttl-add-time"> Meeting/min:</h1>
+                        <input class="meetingTime design_add_time_input" type="number" name="meetingTime" value="30">
+                        </label>
+                        <label for="meetingTime">
+                            <h1 class="ttl-add-time"> Begin Work Date:</h1>
+                            <input class="design_add_time_input" type="date" name="beginWork">
+                            
+                        </label>
+                        <label for="meetingTime">
+                            <h1 class="ttl-add-time"> Finish Work Date:</h1>
+                            <input class="design_add_time_input" type="date" name="endWork">
+                            
+                        </label>
+                    </div>
+                    <button type="submit" id="add-time">Save <i class="fas fa-history"></i> </button>
+                </form>
+            </div>
+            <div class="alluser" style="display: none;">
+                <form action="/deleteUser" method="POST">
+                <% for(let i = 0; i < user.length; i++){ %>
+                    <div class="each-item">
+                        <div class="user-nr"><%= [i+1] %></div>
+                        <div class="each-list">
+                            <div class="user-dtl"> <span class="bold"> Name: </span><%= user[i].name %></div>
+                            <div class="user-dtl"> <span class="bold"> Last Name: </span><%= user[i].Lastname %></div>
+                            <div class="user-dtl"> <span class="bold"> Email: </span><%= user[i].email %></div>
+                            <div style="display: none;" class="idTakenFrom"> <input id="idTakenFrom"+i name="uniqueid<%= i %>" type="text" value="<%= user[i]._id %>"></div>
+                            <div style="display: none;" > <input id="boolu<%= i %>" type="text" name="uniqueid<%= i %>" type="text" value="false"></div>
+                                
+                        </div>
+                    </div>
+                <%}%>
+                <button id="adminDeleteUserBtn" class="deleteBtn" type="submit" name="deleteA" value="deleteA"><i class="fas fa-trash-alt"></i><span> Delete</span></button>
+            </form>
+            </div>
+            <div class="allappns" style="display: none;">
+                <form action="/deleteA" method="POST">
+                <% for(let i = 0; i < item.length; i++){ %>
+                    <div class="each-item">
+                        <div id="existent"><%= i+1%></div>
+                        <div id="row" class="each-appns">
+                            <% if(item[i]){ %>
+                            <% if(item[i].timeAP || item[i].nameAP || item[i].lastnameAP || item[i].emailAP || item[i].numberAP || item[i].addressAP || item[i].postAdressAP || item[i].streatAP || item[i].idAP || item[i].date){ %>
+                                
+                                <div><span class="bold"> Name: </span><%= item[i].nameAP %> / <%= item[i].lastnameAP %></div>
+                                <div id="mentionCC"><span class="bold"> Time: </span><%= item[i].timeAP %></div>
+                                <div id="mentionCC"><span class="bold"> Date: </span><%= item[i].dateAP %></div>
+                                <div><span class="bold"> User Email: </span><%= item[i].numberAP %></div>
+                                <div><span class="bold"> </span><%= item[i].useremailAP %></div>
+                                <div><span class="bold"> Appointments Email: </span><%= item[i].emailAP %></div>
+                                <div><span class="bold"> Address: </span><%= item[i].addressAP %></div>
+                                <div><span class="bold"> Post Address: </span><%= item[i].postAdressAP %></div>
+                                <div><span class="bold"> Date: </span><%= item[i].date %></div>
+                                <div style="display: none;" class="idTakenFrom"> <input id="idTakenFrom"+i name="uniqueid<%= i %>" type="text" value="<%= item[i]._id %>"></div>
+                                <div style="display: none;" > <input id="bool<%= i %>" type="text" name="uniqueid<%= i %>" type="text" value="false"></div>
+                                <%}} else{%>
+                                
+                            <%}%>
+                                
+                        </div>
+                    </div>
+                <button id="adminDeleteBtn" class="deleteBtn" type="submit" name="deleteA" value="deleteA"><i class="fas fa-trash-alt"></i><span> Delete</span></button>
+                <!-- <button id="adminEdit" class="editBtn" type="submit" name="editA" value="editA">Edit</button> -->
+
+                <%}%>
+            </form>
+            </div>
+        </div>
+        <div class="msg_admin">
+
+            <% if(msg_appo){ %>
+            <% for(let i = 0; i < msg_appo.length; i++){ %>
+                <div class="each-msg">
+                    <div class="each-nm-msg"><%= [i+1] %></div>
+                    <div class="each-msg-info">
+                        <div class="msg_ttl"> <span class="hightlight-msg">  Meeting tomarrow <span class="msg_date"> <%= msg_appo[i].dateAP %> </span>with </span> <span class="msg_name"> <%= msg_appo[i].nameAP %></span></div>
+                        <div class="msg_time"> <span class="hightlight-msg"> At: </span><%= msg_appo[i].timeAP %></div>
+                        
+                    </div>
+                    <div class="btns-admin-msg">
+                        <button class="btn-close-msg-admin"><i class="fas fa-times"></i></button>
+                    </div>
+                </div>
+                
+                <%}%>
+            <%}%>
+        </div>
+    </div>
+    
+
+
+</div>
+
+<!-- scripts -->
+<script src="apps/parts/adminDash.js"></script>
