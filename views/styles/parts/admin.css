@@ -1,0 +1,219 @@
+.header-admin{
+    width: 100%;
+    height: 10vh;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+}
+
+.header-admin h1{
+    margin-left: 10%;
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+
+
+.admin-pages-container{
+    height: 100vh;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.register-admin-page{
+    display: flex;
+    flex-direction: column;
+    background: var(--lightblue);
+    width: fit-content;
+    border-radius: 5px;
+    padding: 2rem;
+    width: 400px;
+    height: auto;
+    position: relative;
+}
+
+.register-admin-page h1{
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+
+
+
+.login-admin-page{
+    display: flex;
+    flex-direction: column;
+    background: var(--lightblue);
+    width: fit-content;
+    border-radius: 5px;
+    padding: 2rem;
+    width: fit-content;
+    position: relative;
+
+}
+.admin-inputs-login{
+    width: 400px;
+}
+
+.login-admin-page h1{
+    margin-bottom: 1rem;
+}
+
+
+.login-admin-page h1{
+    text-align: center;
+    font-weight: 500;
+}
+
+.admin-container{
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+}
+
+
+
+.linkToReg{
+    margin: 1rem 0;
+    color: var(--pink);
+    width: fit-content;
+}
+
+
+
+/* msg admin iform */
+.msg_admin{
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+
+}
+.each-msg{
+    transform: translateX(300%);
+    background: var(--whiteTableCC);
+    box-shadow: 0 10px 50px -12px #FF6A95;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: 10vh;
+    align-items: center;
+    position: relative;
+}
+.each-nm-msg{
+    height: 100%;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.each-msg-info{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    padding: 0 0.5rem;
+}
+
+.btns-admin-msg{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.btns-admin-msg button{
+    background: linear-gradient(90deg, #F073C8 99%, #FF6A95 0%);
+    border: 0;
+    height: 100%;
+    padding: 0 2rem;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    color: var(--darkblue);
+    transition: 0.2s;
+    font-size: 1.5rem;
+}
+.btns-admin-msg button:hover{
+    color: var(--white);
+    background: linear-gradient(90deg, #F073C8 0%, #FF6A95 99%);
+    transition: 0.2s;
+}
+
+.msg_ttl{
+    color: var(--meddleblue);
+    width: 90%;
+    align-items: flex-start;
+    text-align: left;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.msg_name, .msg_time, .msg_date{
+    color: var(--pink);
+}
+/*
+/////// 
+///////////
+
+            login page for admin
+
+/////////// 
+/////// 
+*/
+
+
+
+
+/*
+/////// 
+///////////
+
+            reg page for admin 
+
+/////////// 
+/////// 
+*/
+
+
+
+@media only screen and (max-width: 667px){
+    .login-admin-page{
+        width: 90%;
+    }
+    .admin-pages-container{
+        width: 100%;
+    }
+
+    .msg_admin{
+        right: 0;
+        bottom: 0;
+    }
+    .msg_ttl{
+        font-size: 0.7rem;
+        line-height: 1rem;
+    }
+    .msg_name, .msg_time, .msg_date{
+        font-size: 0.8rem;
+    }
+    .each-msg{
+        background: var(--lightgreen);
+    }
+    .btns-admin-msg button{
+        background: var(--white);
+        font-size: 1rem;
+    }
+
+    
+}
+
+

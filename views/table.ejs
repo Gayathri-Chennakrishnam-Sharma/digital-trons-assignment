@@ -1,0 +1,185 @@
+<script defer src="apps/parts/formvalidation.js"></script>
+
+<div class="gluble-cont">
+  <%- include('partiallink/animatedbg'); -%>
+  <%- include('partiallink/header'); -%>
+  <!-- range included -->
+  
+
+  <!-- finished page -->
+
+  <!-- form information -->
+  <div id="formAPC" class="info-collector-AP">
+    <div class="closeFormBtn"></div>
+    <div class="bg-size-container">
+    <form id="formAP" action="/table" method="POST">
+      <div class="todisplay" style="display: flex; flex-direction: column;">
+      <div class="part-one-time">
+        <input
+          type="name"
+          id="timeAP"
+          name="time"
+          class="form-kontrol hiddedInput"
+          placeholder=""
+          value
+        />
+        <input
+          type="name"
+          id="dateAP"
+          name="datadate"
+          class="form-kontrol hiddedInput"
+          placeholder=""
+          value
+        />
+        <h1 id="change-size-h"></h1>
+      </div>
+      <div class="part-two-info">
+        <div class="form-group">
+          <label for="name">Name</label>
+      
+          <input
+            type="name"
+            id="name"
+            name="name"
+            class="form-kontrol"
+            placeholder="Enter Name"
+            value=""
+          />
+              <span id="valName"></span>
+        </div>
+        <div class="form-group">
+          <label for="name">Last Name</label>
+      
+          <input
+            type="Lastname"
+            id="Lastname"
+            name="Lastname"
+            class="form-kontrol"
+            placeholder="Enter Last Name"
+            value=""
+          />
+              <span id="valLast"></span>
+        </div>
+        <div class="form-group">
+          <label for="eamil">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-kontrol"
+            placeholder="email"
+            value=""
+          />
+          <span id="valEmail"></span>
+        </div>
+        
+      </div>
+      <div class="part-three-info">
+        <div class="form-group">
+          <label for="address">Address</label>
+         
+          <input
+            type="address"
+            id="address"
+            name="address"
+            class="form-kontrol"
+            placeholder="Address"
+            value="<%= typeof addressAP != 'undefined' ? addressAP : '' %>"
+          />
+           <span id="valAddress"></span>
+        </div>
+        <div class="form-group">
+          <label for="PostAddress">Post Address</label>
+      
+          <input
+            type="postadress"
+            id="postAdress"
+            name="postAdress"
+            class="form-kontrol"
+            placeholder="Post Address"
+            value="<%= typeof postAdressAP != 'undefined' ? postAdressAP : '' %>"
+          />
+              <span id="valPost"></span>
+        </div>
+        <div class="form-group">
+          <label for="number">Number</label>
+        
+          <input
+            type="text"
+            id="number"
+            name="number"
+            class="form-kontrol"
+            placeholder="Number"
+            value="<%= typeof numberAP != 'undefined' ? numberAP : '' %>"
+          />
+            <span id="valNumber"></span>
+        </div>
+      </div>
+      <p id="varning-msg"></p>
+      <div class="btn-formAP"">
+        <button type="submit" id="submit-AP" class="submit-AP" >Book Appointment </button>
+      </div>
+    </div>
+    </form>
+  </div>
+    
+  </div> 
+    
+  <div class="table-container">
+      <!-- just a dive to free space -->
+      <div class="freespace"></div>
+      <!-- date now -->
+      <%- include('partials/messages');-%>
+      <div id="inputs">
+        <!-- change week buttons -->
+        <div class="change-year-btn">
+            <a href="/changeD/?change=nextweek" >
+              <button type="submit" class="div btnFarward"> Next Week <i class="fas fa-chevron-right"></i></button>
+            </a>
+            <a href="/changeD/?change=prevweek" >
+              <button type="submit" class="div btnBackward"><i class="fas fa-chevron-left"></i> Pre Week</button>
+            </a>
+            
+            <a href="/changeD/?change=thisweek"><button class="div this-week"> This Week <i class="fas fa-thumbtack"></i></button></a>
+            <a class="suport-number" href="/changeD/?change=thisweek"><button class="div"> Need Help? <i class="fas fa-info"></i></button></a>
+        </div>
+      </div>
+
+      <!-- time table -->
+      <div class="table">
+        
+        <div class="table-dtl"> 
+          <div class="devss">
+            
+          </div>
+          <div class="partet-time">
+            <%- divs %>
+          </div>
+        </div>
+      </div>
+      <div class="guid-table">
+        <div class="intro-guid-table">
+          <h1>Guid for the table</h1>
+          <div class="availibe-guid borderline">
+            <div class="content-guid">09:30 - 10:00</div>
+            <div class="info-guid">Bookable</div>
+          </div>
+          <div class="availibe-guid borderline">
+            <div class="booked-guid">09:30 - 10:00</div>
+            <div class="info-guid">Booked</div>
+          </div>
+          <div class="availibe-guid borderline">
+            <div class="content-guid not-able-to-book">10:30 - 11:30</div>
+            <div class="info-guid">Not Bookable</div>
+          </div>
+          <div class="expiret-booked-guid borderline">
+            <div class="expired-guid">08:00 - 09:00</div>
+            <div class="info-guid">Expired</div>
+          </div>
+          
+          </div>
+      </div>
+  </div>
+
+</div>
+<script src="apps/parts/table.js"></script>

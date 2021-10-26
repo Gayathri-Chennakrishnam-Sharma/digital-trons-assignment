@@ -1,0 +1,38 @@
+<%- include('partiallink/header'); -%>
+<%- include('partiallink/animatedbg'); -%>
+<%- include('partials/info'); -%>
+<div class="admin-pages-container">
+  <div class="login-admin-page" style="display: flex;">
+    <h1>Admin Dashboard</h1>
+    <%- include('partials/messages'); -%>
+      <form action="/admin/loginA" method="POST">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-control admin-inputs-login"
+            placeholder="Enter Email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-control admin-inputs-login"
+            placeholder="Enter Password"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Login <i class="fas fa-long-arrow-alt-right"></i></button>
+      </form>
+      
+    </div>
+</div>
+
+
+
+
+
